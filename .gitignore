@@ -70,3 +70,4 @@ agent_state/
 
 # Personal documents
 *.sh
+docs/*.md
