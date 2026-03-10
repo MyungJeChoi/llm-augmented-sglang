@@ -1,0 +1,12 @@
+{"name":"health","type":"health"}
+{"name":"chat_query_downtime_top10","type":"chat_query","query":"정지시간 많은 장비 top10","min_rows":1,"must_have_keys":["sql","rows"],"row_must_have":["asset_name","downtime_hours"]}
+{"name":"chat_query_temperature_top10","type":"chat_query","query":"온도 높은 장비 top10","min_rows":1,"row_must_have":["asset_name","avg_temp"]}
+{"name":"agent_direct_nl2sql","type":"agent_chat","message":"정지시간 많은 장비 top10","expect":{"last_nl2sql_ok":true}}
+{"name":"agent_clarify_then_followup","type":"agent_script","steps":[
+  {"message":"장비 top10","expect":{"pending_reason":"need_metric"}},
+  {"message":"다운타임","expect":{"pending_is_null":true,"last_nl2sql_ok":true}}
+]}
+{"name":"agent_rank_followup_events","type":"agent_script","steps":[
+  {"message":"정지시간 많은 장비 top10","expect":{"last_nl2sql_ok":true}},
+  {"message":"1등 장비 이벤트 보여줘","expect":{"current_query_contains":"이벤트","last_nl2sql_ok":true}}
+]}

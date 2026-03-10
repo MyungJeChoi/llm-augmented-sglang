@@ -1,0 +1,7 @@
+{"name":"health","type":"health"}
+{"name":"db_stats","type":"db_stats","min_assets":50,"min_events":500,"min_metrics":500}
+{"name":"warmup_chat_query_downtime","type":"chat_query","query":"정지시간 많은 장비 top10","min_rows":1}
+{"name":"warmup_chat_query_temperature","type":"chat_query","query":"온도 높은 장비 top10","min_rows":1}
+{"name":"cache_repeat_downtime","type":"chat_query_repeat","query":"정지시간 많은 장비 top10","repeat":5,"expect_cache_hit":true}
+{"name":"batch_asset_events","type":"asset_batch","kind":"events","count":20}
+{"name":"batch_asset_downtime","type":"asset_batch","kind":"downtime","count":20}

@@ -1,0 +1,11 @@
+fastapi>=0.110
+uvicorn[standard]>=0.27
+pydantic>=2.6
+pydantic-settings>=2.2
+sqlalchemy>=2.0
+neo4j>=5.20
+requests>=2.31
+
+# Milestone C (agentic orchestration)
+langgraph>=1.0
+langgraph-checkpoint-sqlite>=3.0
